@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg" android:orientation="vertical">
+
+    <!-- 임시 화면: 홈 담당자가 시안에 맞춰 다시 만들 때, 아래 버튼의 이동 코드(Java)만 옮기면 돼요 -->
+    <TextView
+        style="@style/Text.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FamilyHome (임시)" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMed"
+        style="@style/Btn.Family"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="복약 일정 관리" />
+</LinearLayout>

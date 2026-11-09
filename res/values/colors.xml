@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#1F6F6B</color>
+    <color name="bg">#F7F3EA</color>
+    <color name="ink">#1E2B2A</color>
+    <color name="ink_muted">#55625F</color>
+    <color name="line">#E4DDCC</color>
+    <color name="line_strong">#CFC7B2</color>
+    <color name="dot_later_line">#B9B19C</color>
+    <color name="ok_bg">#D8EBDD</color>
+    <color name="ok_text">#1D5B34</color>
+    <color name="wait_bg">#FBE7C2</color>
+    <color name="wait_text">#5C3B00</color>
+    <color name="alert_bg">#F8DAD2</color>
+    <color name="alert_text">#7A2412</color>
+    <color name="disabled_bg">#E4DDCC</color>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 버튼: AppCompatButton에 style로 적용 -->
+    <style name="Btn">
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:textColor">@color/text_on_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Btn.Elder">
+        <item name="android:minHeight">@dimen/btn_height_elder</item>
+        <item name="android:textSize">@dimen/text_btn_elder</item>
+    </style>
+    <style name="Btn.Elder.Outline">
+        <item name="android:background">@drawable/bg_btn_outline</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+    <style name="Btn.Family">
+        <item name="android:minHeight">@dimen/btn_height_family</item>
+        <item name="android:textSize">@dimen/text_btn_family</item>
+    </style>
+    <style name="Btn.Family.Outline">
+        <item name="android:background">@drawable/bg_btn_outline</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <!-- 글자 -->
+    <style name="Text" />
+    <style name="Text.Title">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+    <style name="Text.Title.Elder">
+        <item name="android:textSize">@dimen/text_title_elder</item>
+    </style>
+    <style name="Text.Body">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/ink_muted</item>
+    </style>
+    <style name="Text.Body.Elder">
+        <item name="android:textSize">@dimen/text_body_elder</item>
+    </style>
+
+    <!-- 카드 -->
+    <style name="Card">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">@dimen/card_padding</item>
+    </style>
+</resources>
