@@ -67,7 +67,7 @@ public class ElderMedActivity extends AppCompatActivity {
                 item.btnTook.setText("확인했어요");
             } else {
                 boolean late = now > AlarmScheduler.todayTimeMillis(s, now);
-                item.textDoseStatus.setText(late ? "시간이 지났어요. 드셨다면 눌러 주세요" : "아직 안 먹었어요");
+                item.textDoseStatus.setText(late ? "시간이 지났어요. 아래 '약 먹었어요' 버튼을 눌러 주세요" : "아직 안 먹었어요");
                 final long id = s.id;
                 item.btnTook.setOnClickListener(v -> {
                     long t = System.currentTimeMillis();
