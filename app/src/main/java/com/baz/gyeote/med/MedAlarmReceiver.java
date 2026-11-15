@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-/** 알람 시각이 되었을 때, 알림의 '먹었어요' 버튼을 눌렀을 때 호출돼요. */
 public class MedAlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -14,9 +13,10 @@ public class MedAlarmReceiver extends BroadcastReceiver {
         long now = System.currentTimeMillis();
 
         if (AlarmScheduler.ACTION_TAKEN.equals(action)) {
-            // 알림에서 바로 '먹었어요' (이미 기록돼 있으면 중복이라 무시돼요)
+
             repo.confirm(id, MedRepository.dateKey(now), now);
             NotificationHelper.cancel(context, id);
+            AlarmScheduler.cancelReminder(context, id);          // 남은 재알림 취소
             return;
         }
 
@@ -29,7 +29,7 @@ public class MedAlarmReceiver extends BroadcastReceiver {
             MedSchedule s = repo.getById(id);
             if (s == null) return;                      // 삭제된 일정이면 끝
             AlarmScheduler.schedule(context, s);        // 다음 반복 알림을 바로 예약
-            if (repo.getTakenAt(id, MedRepository.dateKey(now)) == null) {   // 이미 먹었으면 울리지 않아요
+            if (repo.getTakenAt(id, MedRepository.dateKey(now)) == null) {   // 이미 먹었으면 울리지 X
                 NotificationHelper.show(context, (int) id, "약 드실 시간이에요",
                         s.name + " · " + s.timeText(), id);
             }
