@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg" android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textTitle"
+        style="@style/Text.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="복약 일정 등록" />
+
+    <TextView
+        style="@style/Text.Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="약 이름" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/bg_card"
+        android:hint="예: 혈압약"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="52dp"
+        android:padding="12dp"
+        android:textColor="@color/ink" />
+
+    <TextView
+        style="@style/Text.Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="복용 시간" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTime"
+        style="@style/Btn.Family.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp" />
+
+    <TextView
+        style="@style/Text.Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="반복 요일" />
+
+    <CheckBox
+        android:id="@+id/chkEveryday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="매일" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox android:id="@+id/chkSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="일" />
+        <CheckBox android:id="@+id/chkMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="월" />
+        <CheckBox android:id="@+id/chkTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="화" />
+        <CheckBox android:id="@+id/chkWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="수" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox android:id="@+id/chkThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="목" />
+        <CheckBox android:id="@+id/chkFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="금" />
+        <CheckBox android:id="@+id/chkSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="토" />
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSave"
+        style="@style/Btn.Family"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="저장하기" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDelete"
+        style="@style/Btn.Family.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="삭제하기"
+        android:visibility="gone" />
+</LinearLayout>
