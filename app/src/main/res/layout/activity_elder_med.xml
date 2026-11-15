@@ -12,7 +12,7 @@
         style="@style/Text.Title.Elder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="오늘 드실 약" />
+        android:text="오늘 먹을 약" />
 
     <TextView
         android:id="@+id/textEmpty"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="오늘은 드실 약이 없어요."
+        android:text="오늘은 먹을 약이 없어요."
         android:visibility="gone" />
 
     <ScrollView
@@ -35,4 +35,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnHistory"
+        style="@style/Btn.Elder.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="복약 기록 보기" />
 </LinearLayout>
