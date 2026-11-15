@@ -53,6 +53,11 @@ public class MedAlarmReceiver extends BroadcastReceiver {
                         MedSettings.remindIntervalMillis(context));
             } else {
 
+                if (repo.addFamilyAlert(id, day, now)) {
+                    NotificationHelper.showFamilyAlert(context, id, "가족 알림: 약 확인이 없어요",
+                            "어르신이 " + s.name + "(" + s.timeText() + ")을 아직 확인하지 않았어요. 전화로 안부를 확인해 보세요.");
+                }
+
             }
         }
     }
