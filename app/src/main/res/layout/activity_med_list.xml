@@ -55,6 +55,14 @@
         android:text="약 추가" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnHistory"
+        style="@style/Btn.Family.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="복약 기록 보기" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTest"
         style="@style/Btn.Family.Outline"
         android:layout_width="match_parent"
