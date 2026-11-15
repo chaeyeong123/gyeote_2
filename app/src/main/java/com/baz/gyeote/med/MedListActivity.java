@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.baz.gyeote.common.UiUtil;
 import com.baz.gyeote.databinding.ActivityMedListBinding;
+import com.baz.gyeote.databinding.ItemAlertBinding;
 import com.baz.gyeote.databinding.ItemMedBinding;
 
 import java.util.List;
@@ -60,6 +61,31 @@ public class MedListActivity extends AppCompatActivity {
         AlarmScheduler.rescheduleAll(this);
         binding.btnExactAllow.setVisibility(AlarmScheduler.canScheduleExact(this) ? View.GONE : View.VISIBLE);
         refreshList();
+        refreshAlerts();
+    }
+    private void refreshAlerts() {
+        binding.alertContainer.removeAllViews();
+        List<FamilyAlert> alerts = repo.getOpenAlerts();
+        int shown = 0;
+        for (FamilyAlert a : alerts) {
+            final MedSchedule s = repo.getById(a.scheduleId);
+            if (s == null) {                                   // 삭제된 일정의 알림은 정리
+                repo.resolveAlert(a.id, System.currentTimeMillis());
+                continue;
+            }
+            ItemAlertBinding item = ItemAlertBinding.inflate(getLayoutInflater(), binding.alertContainer, false);
+            item.textAlertTitle.setText("확인이 필요해요: " + s.name);
+            item.textAlertBody.setText(s.timeText() + " 약을 아직 확인하지 않았어요. 전화로 안부를 확인해 보세요.");
+            final long alertId = a.id;
+            item.btnResolve.setOnClickListener(v -> {
+                repo.resolveAlert(alertId, System.currentTimeMillis());
+                NotificationHelper.cancel(this, s.id);
+                refreshAlerts();
+            });
+            binding.alertContainer.addView(item.getRoot());
+            shown++;
+        }
+        binding.alertContainer.setVisibility(shown == 0 ? View.GONE : View.VISIBLE);
     }
 
     private void refreshList() {
