@@ -36,6 +36,7 @@ public class ElderMedActivity extends AppCompatActivity {
         repo = MedRepository.get(this);
         NotificationHelper.ensureChannel(this);
         NotificationHelper.requestPermissionIfNeeded(this, notifPermission);
+        binding.btnHistory.setOnClickListener(v -> startActivity(new Intent(this, MedHistoryActivity.class)));
     }
 
     @Override
