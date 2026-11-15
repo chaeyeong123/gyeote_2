@@ -39,6 +39,7 @@ public class MedListActivity extends AppCompatActivity {
         NotificationHelper.requestPermissionIfNeeded(this, notifPermission);
 
         binding.btnAdd.setOnClickListener(v -> startActivity(new Intent(this, MedEditActivity.class)));
+        binding.btnHistory.setOnClickListener(v -> startActivity(new Intent(this, MedHistoryActivity.class)));
         binding.btnTest.setOnClickListener(v -> {
             AlarmScheduler.scheduleTest(this, 10_000);
             Toast.makeText(this, "10초 뒤에 알림이 와요. 앱을 닫고 기다려 보세요.", Toast.LENGTH_LONG).show();
