@@ -19,11 +19,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-    /** 날짜별 복약 확인 기록 (13번). 어르신 화면과 가족 화면 모두 이 화면으로 들어와요. */
+    // 날짜 별 복약 기록
     public class MedHistoryActivity extends AppCompatActivity {
         private ActivityMedHistoryBinding binding;
         private MedRepository repo;
-        private final Calendar day = Calendar.getInstance();   // 지금 보고 있는 날짜 (처음엔 오늘)
+        private final Calendar day = Calendar.getInstance();   // 지금보는 날짜
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ import java.util.Locale;
             binding.textDate.setText(new SimpleDateFormat("M월 d일 EEEE", Locale.KOREA).format(new Date(dayMillis)));
 
             int dayIndex = day.get(Calendar.DAY_OF_WEEK) - 1;
-            List<MedSchedule> list = repo.getForDay(dayIndex);    // 그 요일에 먹는 약 (회차별)
+            List<MedSchedule> list = repo.getForDay(dayIndex);    //그 요일에 먹는 약 (회차별)
             int taken = 0;
 
             for (MedSchedule s : list) {
