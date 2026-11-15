@@ -14,6 +14,9 @@ public final class AlarmScheduler {
     public static final String ACTION_TAKEN = "com.baz.gyeote.ACTION_MED_TAKEN";
     public static final String EXTRA_ID = "schedule_id";
     public static final String EXTRA_TEST = "is_test";
+    public static final String ACTION_REMIND = "com.baz.gyeote.ACTION_MED_REMIND";   // 14번 재알림
+    public static final String EXTRA_ATTEMPT = "attempt";    // 몇 번째 재알림?
+    public static final String EXTRA_DAY = "day_key";        // 알람 날짜
 
     private AlarmScheduler() { }
 
