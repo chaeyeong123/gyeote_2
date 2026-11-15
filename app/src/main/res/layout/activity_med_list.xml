@@ -61,6 +61,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="복약 기록 보기" />
+    <CheckBox
+        android:id="@+id/chkFastMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="시험 모드 (재알림 1분 간격, 가족 알림 3분 뒤)" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTest"
