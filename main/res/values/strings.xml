@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">곁에</string>
+    <string name="role_title">어떻게\n사용하실 건가요?</string>
+    <string name="role_sub">처음 한 번만 정해요. 나중에 바꾸기 어려워요.</string>
+    <string name="role_elder_title">저는 어르신이에요</string>
+    <string name="role_elder_desc">오늘 할 일과 약을 하나씩, 큰 글씨로 알려드려요.</string>
+    <string name="role_family_title">저는 가족이에요</string>
+    <string name="role_family_desc">멀리 계신 어르신의 약, 일정, 안전을 함께 챙겨요.</string>
+    <string name="btn_next">다음</string>
+    <string name="elder_home_placeholder">어르신 홈 (B가 만드는 화면)</string>
+    <string name="family_home_placeholder">가족 홈 (C가 만드는 화면)</string>
+</resources>
