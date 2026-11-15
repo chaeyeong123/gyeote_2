@@ -15,6 +15,12 @@
         android:layout_marginTop="4dp"
         android:text="여기서 등록한 약은 어르신 화면에도 똑같이 보여요." />
 
+    <LinearLayout
+        android:id="@+id/alertContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnExactAllow"
         style="@style/Btn.Family.Outline"
