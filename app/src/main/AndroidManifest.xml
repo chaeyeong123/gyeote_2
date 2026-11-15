@@ -18,6 +18,7 @@
 
 
     <activity android:name=".RoleSelectActivity" android:exported="true">
+
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -26,11 +27,15 @@
     <activity android:name=".ElderHomeActivity" android:exported="false" />
     <activity android:name=".FamilyHomeActivity" android:exported="false" />
     <activity android:name=".med.MedListActivity" android:exported="false" />
+    <activity android:name=".med.MedHistoryActivity" android:exported="false" />
     <activity android:name=".med.MedEditActivity" android:exported="false" />
     <activity android:name=".med.ElderMedActivity" android:exported="false" />
+
     <receiver android:name=".med.MedAlarmReceiver" android:exported="false" />
     <receiver android:name=".med.BootReceiver" android:exported="true">
+
         <intent-filter>
+
             <action android:name="android.intent.action.BOOT_COMPLETED" />
         </intent-filter>
     </receiver>
