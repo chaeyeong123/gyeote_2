@@ -97,6 +97,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp" />
+
+            <TextView
+                style="@style/Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="최근 안부"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textLastGreeting"
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
         </LinearLayout>
     </ScrollView>
 
@@ -115,4 +130,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="복약 기록 보기" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGreetingSend"
+        style="@style/Btn.Family.Outline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="안부 보내기" />
 </LinearLayout>
