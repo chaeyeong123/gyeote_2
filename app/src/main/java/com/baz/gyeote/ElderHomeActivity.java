@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.baz.gyeote.common.UiUtil;
 import com.baz.gyeote.databinding.ActivityElderHomeBinding;
+import com.baz.gyeote.med.ElderGreetingActivity;
 import com.baz.gyeote.med.ElderMedActivity;
 
 public class ElderHomeActivity extends AppCompatActivity {
@@ -23,5 +24,6 @@ public class ElderHomeActivity extends AppCompatActivity {
 
         // 복약화면으로 이동파트
         binding.btnToday.setOnClickListener(v -> startActivity(new Intent(this, ElderMedActivity.class)));
+        binding.btnGreeting.setOnClickListener(v -> startActivity(new Intent(this, ElderGreetingActivity.class)));
     }
 }
