@@ -107,4 +107,30 @@ public final class NotificationHelper {
         nm.cancel((int) id);
         nm.cancel((int) id + 300000);
     }
+
+    /** 22번: 가족이 안부를 보내면 어르신 쪽에 뜨는 알림. 누르면 안부 화면이 열려요. */
+    @SuppressLint("MissingPermission")
+    public static void showGreeting(Context ctx, long greetingId, String text) {
+        if (!canPost(ctx)) return;
+        ensureChannel(ctx);
+        int notificationId = (int) greetingId + 400000;
+        Intent open = new Intent(ctx, ElderGreetingActivity.class);
+        open.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent openPi = PendingIntent.getActivity(ctx, notificationId, open,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        NotificationCompat.Builder b = new NotificationCompat.Builder(ctx, CHANNEL_ID)
+                .setSmallIcon(android.R.drawable.ic_dialog_email)
+                .setContentTitle("가족이 안부를 보냈어요")
+                .setContentText(text)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setAutoCancel(true)
+                .setContentIntent(openPi);
+        NotificationManagerCompat.from(ctx).notify(notificationId, b.build());
+    }
+
+    public static void cancelGreeting(Context ctx, long greetingId) {
+        NotificationManagerCompat.from(ctx).cancel((int) greetingId + 400000);
+    }
+
 }
