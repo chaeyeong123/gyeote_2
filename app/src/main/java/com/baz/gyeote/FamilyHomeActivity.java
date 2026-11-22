@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat;
 import com.baz.gyeote.common.UiUtil;
 import com.baz.gyeote.databinding.ActivityFamilyHomeBinding;
 import com.baz.gyeote.databinding.ItemMedBinding;
+import com.baz.gyeote.med.Greeting;
+import com.baz.gyeote.med.GreetingSendActivity;
 import com.baz.gyeote.med.AlarmScheduler;
 import com.baz.gyeote.med.MedHistoryActivity;
 import com.baz.gyeote.med.MedListActivity;
@@ -38,12 +40,21 @@ public class FamilyHomeActivity extends AppCompatActivity {
         repo = MedRepository.get(this);
         binding.btnMed.setOnClickListener(v -> startActivity(new Intent(this, MedListActivity.class)));
         binding.btnHistoryHome.setOnClickListener(v -> startActivity(new Intent(this, MedHistoryActivity.class)));
+        binding.btnGreetingSend.setOnClickListener(v -> startActivity(new Intent(this, GreetingSendActivity.class)));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         refreshDashboard();     // 다른 화면에서 돌아올 때마다 최신 상태로
+        // 22번: 가장 최근에 보낸 안부와 수신·확인 상태
+        List<Greeting> last = repo.getGreetings(1);
+        if (last.isEmpty()) {
+            binding.textLastGreeting.setText("아직 보낸 안부가 없어요");
+        } else {
+            Greeting g = last.get(0);
+            binding.textLastGreeting.setText("\"" + g.text + "\"\n" + g.statusText());
+        }
     }
 
     private void refreshDashboard() {
