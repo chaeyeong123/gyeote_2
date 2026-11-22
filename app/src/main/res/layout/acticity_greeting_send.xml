@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="안부 보내기" />
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="버튼을 누르면 바로 어르신께 전달돼요." />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnQuick1"
+                style="@style/Btn.Family.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnQuick2"
+                style="@style/Btn.Family.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnQuick3"
+                style="@style/Btn.Family.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnQuick4"
+                style="@style/Btn.Family.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/editCustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card"
+                android:hint="직접 쓰기"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="52dp"
+                android:padding="12dp"
+                android:textColor="@color/ink" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSendCustom"
+                style="@style/Btn.Family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="직접 쓴 안부 보내기" />
+
+            <TextView
+                style="@style/Text.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="보낸 안부"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textEmpty"
+                style="@style/Text.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="아직 보낸 안부가 없어요."
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/greetingContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
