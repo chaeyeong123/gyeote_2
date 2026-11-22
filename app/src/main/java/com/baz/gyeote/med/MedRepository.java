@@ -150,6 +150,52 @@ public class MedRepository {
         db.update("family_alert", v, "schedule_id = ? AND day_key = ? AND resolved_at IS NULL",
                 new String[]{String.valueOf(scheduleId), dayKey});
     }
+    // ---------- 안부 (22번) ----------
+    /** 안부를 저장하고 id를 돌려줘요 */
+    public long addGreeting(String body, long sentAt) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("body", body);
+        v.put("sent_at", sentAt);
+        return db.insert("greeting", null, v);
+    }
+
+    /** 최근에 보낸 순서로 limit개 */
+    public List<Greeting> getGreetings(int limit) {
+        List<Greeting> list = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        try (Cursor c = db.query("greeting", null, null, null, null, null, "sent_at DESC", String.valueOf(limit))) {
+            while (c.moveToNext()) {
+                Greeting g = new Greeting();
+                g.id = c.getLong(c.getColumnIndexOrThrow("id"));
+                g.text = c.getString(c.getColumnIndexOrThrow("body"));
+                g.sentAt = c.getLong(c.getColumnIndexOrThrow("sent_at"));
+                int r = c.getColumnIndexOrThrow("received_at");
+                g.receivedAt = c.isNull(r) ? 0 : c.getLong(r);
+                int f = c.getColumnIndexOrThrow("confirmed_at");
+                g.confirmedAt = c.isNull(f) ? 0 : c.getLong(f);
+                list.add(g);
+            }
+        }
+        return list;
+    }
+
+    // 수신 시각 기록 (처음 한 번만)
+    public void markReceived(long id, long now) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("received_at", now);
+        db.update("greeting", v, "id = ? AND received_at IS NULL", new String[]{String.valueOf(id)});
+    }
+
+    //확인 시각 기록 (처음 한 번만)
+    public void markConfirmed(long id, long now) {
+        markReceived(id, now);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues v = new ContentValues();
+        v.put("confirmed_at", now);
+        db.update("greeting", v, "id = ? AND confirmed_at IS NULL", new String[]{String.valueOf(id)});
+    }
     //  날짜/시간 도우미
     public static String dateKey(long millis) {
         return new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date(millis));
