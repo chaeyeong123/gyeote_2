@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MedDbHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "gyeote_med.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     public MedDbHelper(Context context) { super(context, DB_NAME, null, DB_VERSION); }
 
@@ -22,11 +22,13 @@ public class MedDbHelper extends SQLiteOpenHelper {
                 + "schedule_id INTEGER NOT NULL, day_key TEXT NOT NULL, taken_at INTEGER NOT NULL, "
                 + "UNIQUE(schedule_id, day_key))");
         createFamilyAlertTable(db);
+        createGreetingTable(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 2) createFamilyAlertTable(db);
+        if (oldVersion < 3) createGreetingTable(db);   // 22번: 안부 표 추가
     }
     private void createFamilyAlertTable(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE family_alert ("
@@ -34,5 +36,12 @@ public class MedDbHelper extends SQLiteOpenHelper {
                 + "schedule_id INTEGER NOT NULL, day_key TEXT NOT NULL, "
                 + "created_at INTEGER NOT NULL, resolved_at INTEGER, "
                 + "UNIQUE(schedule_id, day_key))");
+    }
+
+    private void createGreetingTable(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE greeting ("
+                + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "body TEXT NOT NULL, sent_at INTEGER NOT NULL, "
+                + "received_at INTEGER, confirmed_at INTEGER)");
     }
 }
