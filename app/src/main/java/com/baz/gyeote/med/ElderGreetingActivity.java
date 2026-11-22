@@ -51,7 +51,7 @@ public class ElderGreetingActivity extends AppCompatActivity {
             item.btnRead.setVisibility(View.VISIBLE);
 
             if (g.confirmedAt != 0) {
-                item.btnRead.setEnabled(false);       // 이미 확인했으면 다시 못 눌러요
+                item.btnRead.setEnabled(false);       // 이미 확인했으면 다시 못 누름
                 item.btnRead.setText("잘 읽었어요 (확인함)");
             } else {
                 final long id = g.id;
